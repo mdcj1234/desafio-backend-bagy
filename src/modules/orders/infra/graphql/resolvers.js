@@ -7,6 +7,13 @@ import OrdersRepository from '../typeorm/repositories/OrdersRepository';
 
 export default {
   Order: {
+    created_at: order => {
+      return new Date(order.created_at);
+    },
+    updated_at: order => {
+      return new Date(order.updated_at);
+    },
+
     totalPrice: order => {
       const { products } = order;
 

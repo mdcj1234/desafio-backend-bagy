@@ -1,3 +1,5 @@
+scalar Date
+
 type Address {
   street: String
   neighbourhood: String
@@ -13,8 +15,10 @@ type Customer {
   name: String!
   email: String!
   cpf: String!
-  birthDate: String!
-  address: Address
+  birthDate: Date!
+  address: Address!
+  created_at: Date
+  updated_at: Date
 }
 
 input AddressInput {
@@ -32,7 +36,7 @@ input CustomerInput {
   email: String!
   cpf: String!
   birthDate: String!
-  address: AddressInput
+  address: AddressInput!
 }
 
 type Query {

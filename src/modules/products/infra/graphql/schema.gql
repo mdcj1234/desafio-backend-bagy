@@ -6,11 +6,12 @@ type Product {
   weight: Float!
   price: Float!
   stock: Int!
+  created_at: String
+  updated_at: String
 }
 
 input ProductInput {
   name: String!
-  imageFile: Upload
   description: String!
   weight: Float!
   price: Float!
@@ -23,7 +24,8 @@ type Query {
 },
 
 type Mutation {
-  createProduct( data: ProductInput! ): Product
+  createProduct( imageFile: Upload!, data: ProductInput! ): Product
   updateProduct( id: ID!, data: ProductInput! ): Product
+  updateProductImage( id: ID!, imageFile: Upload!): Product
   deleteProduct( id: ID! ): Boolean
 }

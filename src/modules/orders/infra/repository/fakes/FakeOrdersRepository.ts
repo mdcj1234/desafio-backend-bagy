@@ -1,4 +1,4 @@
-import { uuid } from 'uuidv4';
+import { v4 as uuid } from 'uuid';
 
 import ICreateOrderDTO from '@modules/orders/dtos/ICreateOrderDTO';
 import IOrdersRepository from '@modules/orders/infra/repository/IOrdersRepository';

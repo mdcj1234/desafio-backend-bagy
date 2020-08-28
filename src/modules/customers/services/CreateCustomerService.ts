@@ -28,7 +28,8 @@ class CreateCustomerService {
   ) {}
 
   public async execute(data: IRequest): Promise<Customer> {
-    const { name, email, cpf, birthDate, address } = data;
+    const { name, email, cpf, address } = data;
+    const birthDate = new Date(data.birthDate);
 
     const checkCustomerEmail = await this.customersRepository.findByEmail(
       email,

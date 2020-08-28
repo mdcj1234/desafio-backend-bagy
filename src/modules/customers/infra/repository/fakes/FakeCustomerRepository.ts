@@ -1,4 +1,4 @@
-import { uuid } from 'uuidv4';
+import { v4 as uuid } from 'uuid';
 
 import ICustomerRepository from '@modules/customers/infra/repository/ICustomerRepository';
 import Customer from '@modules/customers/infra/typeorm/entities/Customer';

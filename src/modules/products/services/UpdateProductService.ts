@@ -7,7 +7,6 @@ import Product from '@modules/products/infra/typeorm/entities/Product';
 interface IRequest {
   id: string;
   name: string;
-  image_url: string;
   description: string;
   weight: number;
   price: number;
@@ -22,7 +21,7 @@ class UpdateProductRepository {
   ) {}
 
   public async execute(data: IRequest): Promise<Product> {
-    const { id, name, image_url, description, weight, price, stock } = data;
+    const { id, name, description, weight, price, stock } = data;
 
     const product = await this.productsRepository.findById(id);
 
@@ -52,7 +51,6 @@ class UpdateProductRepository {
 
     Object.assign(product, {
       name,
-      image_url,
       description,
       weight,
       price,

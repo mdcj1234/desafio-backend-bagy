@@ -6,6 +6,18 @@ import DeleteCustomerService from '@modules/customers/services/DeleteCustomerSer
 import CustomersRepository from '../typeorm/repositories/CustomersRepository';
 
 export default {
+  Customer: {
+    birthDate: customer => {
+      return new Date(customer.birthDate);
+    },
+    created_at: customer => {
+      return new Date(customer.created_at);
+    },
+    updated_at: customer => {
+      return new Date(customer.updated_at);
+    },
+  },
+
   Query: {
     customers: () => {
       const customersRepository = new CustomersRepository();
