@@ -1,18 +1,18 @@
 import 'dotenv/config';
-import './infra/typeorm';
 import 'reflect-metadata';
 
 import '@global/container';
+import './infra/typeorm';
 
 import { ApolloServer } from 'apollo-server';
-import cors from 'cors';
+
 import typeDefs from './infra/graphql/typeDefs';
 import resolvers from './infra/graphql/resolvers';
 
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  cors: cors(),
+  cors: false,
   playground: process.env.NODE_ENV === 'development',
 });
 

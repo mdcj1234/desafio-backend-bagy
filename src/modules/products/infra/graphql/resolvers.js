@@ -1,9 +1,36 @@
 import { container } from 'tsyringe';
+import { createWriteStream } from 'fs';
+
+import path from 'path';
 
 import CreateProductService from '@modules/products/services/CreateProductService';
 import UpdateProductService from '@modules/products/services/UpdateProductService';
 import DeleteProductService from '@modules/products/services/DeleteProductService';
 import ProductsRepository from '../typeorm/repositories/ProductsRepository';
+
+async function waitForImageFileToImport(promiseImageFile) {
+  const imageFile = await promiseImageFile;
+
+  const { createReadStream, filename } = imageFile;
+
+  const filePath = path.resolve(
+    __dirname,
+    '..',
+    '..',
+    '..',
+    '..',
+    '..',
+    'tmp',
+    `${filename}`,
+  );
+
+  return new Promise((resolve, reject) =>
+    createReadStream()
+      .pipe(createWriteStream(filePath))
+      .on('finish', () => resolve(true))
+      .on('error', () => reject()),
+  );
+}
 
 export default {
   Query: {
@@ -17,9 +44,19 @@ export default {
     },
   },
   Mutation: {
-    createProduct: (_, { data }) => {
+    createProduct: async (_, { data }) => {
+      const { imageFile } = data;
+
+      await waitForImageFileToImport(imageFile);
+
+      const { filename } = await imageFile;
+
       const createProductService = container.resolve(CreateProductService);
-      return createProductService.execute(data);
+      const inputData = {
+        ...data,
+        imageFileName: filename,
+      };
+      return createProductService.execute(inputData);
     },
     updateProduct: (_, { id, data }) => {
       const updateProductService = container.resolve(UpdateProductService);

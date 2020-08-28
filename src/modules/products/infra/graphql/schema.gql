@@ -10,7 +10,7 @@ type Product {
 
 input ProductInput {
   name: String!
-  imageFileName: Upload
+  imageFile: Upload
   description: String!
   weight: Float!
   price: Float!
