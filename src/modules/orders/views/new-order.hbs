@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<style>
+  .container {
+    width: 100%;
+    text-align: center;
+    background-color: #f3f2fd;
+  }
+
+	.message-container {
+    display: inline-block;
+    margin: 0 auto;
+    padding: 10px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    line-height: 21px;
+  }
+
+  .message-header {
+    flex: 1;
+    width: 500px;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #fb3d8c;
+  }
+
+  .message-content {
+    flex: 1;
+    width: 500px;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #fff;
+  }
+
+  .product_list {
+    display: inline-block;
+    width: 200px;
+  }
+
+  .message-image {
+    height: 100px;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="message-container">
+
+    <div class="message-header">
+      <p>Olá, {{name}}</p>
+      <p>Seu pedido foi registrado em nosso sistema.</p>
+    </div>
+
+    <div class="message-content">
+
+        <img class="message-image" src="https://marciojr-bagy.s3.amazonaws.com/logo-bagy.png" alt="https://sites.bagy.com.br/">
+        <br />
+
+        <strong>Resumo da compra</strong>
+
+        <p>Você comprou de</p>
+        <p>CPF {{cpf}}</p>
+
+        <p>Entrega no endereço</p>
+        <p>{{address}}</p>
+
+        <p>Os items comprados foram: </p>
+        <ul class="product_list">
+          {{#each products}}
+            <li>{{this}}</li>
+          {{/each}}
+        </ul>
+
+        <p>Você pagou: {{totalPrice}}</p>
+
+        <p> Obrigado!</p>
+        <br />
+        <strong>Equpe Bagy</strong>
+    </div>
+  </div>
+</div>

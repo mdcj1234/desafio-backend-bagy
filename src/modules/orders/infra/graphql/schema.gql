@@ -1,0 +1,58 @@
+type Address {
+  street: String
+  neighbourhood: String
+  city: String
+  state: String
+  country: String
+  zipcode: Int
+  number: Int
+}
+
+type Customer {
+  id: ID!
+  name: String!
+  email: String!
+  cpf: String!
+  birthDate: String!
+  address: Address
+}
+
+type OrderProducts {
+  id: ID!
+  product_id: String!
+  price: Float!
+  quantity: Int!
+}
+
+type Order {
+  id: ID!
+  customer: Customer!
+  installments: Int!
+  status: String!
+  products: [OrderProducts!]!
+
+  totalPrice: Float!
+  installmentValue: Float!
+}
+
+input OrderProductsInput {
+  product_id: String!
+  quantity: Int!
+}
+
+input OrderInput {
+  customer_id: String!
+  installments: Int!
+  products: [OrderProductsInput!]!
+}
+
+type Query {
+  orders: [Order!]!
+  order(id: ID!): Order!
+},
+
+type Mutation {
+  createOrder(data: OrderInput!): Order
+  updateOrderStatus(id: ID!): Order
+  cancelOrder(id: ID!): Order
+}

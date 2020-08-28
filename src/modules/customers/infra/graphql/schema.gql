@@ -1,0 +1,47 @@
+type Address {
+  street: String
+  neighbourhood: String
+  city: String
+  state: String
+  country: String
+  zipcode: Int
+  number: Int
+}
+
+type Customer {
+  id: ID!
+  name: String!
+  email: String!
+  cpf: String!
+  birthDate: String!
+  address: Address
+}
+
+input AddressInput {
+  street: String
+  neighbourhood: String
+  city: String
+  state: String
+  country: String
+  zipcode: Int
+  number: Int
+}
+
+input CustomerInput {
+  name: String!
+  email: String!
+  cpf: String!
+  birthDate: String!
+  address: AddressInput
+}
+
+type Query {
+  customers: [Customer!]!
+  customer(id: ID!): Customer!
+},
+
+type Mutation {
+  createCustomer( data: CustomerInput! ): Customer
+  updateCustomer( id: ID!, data: CustomerInput! ): Customer
+  deleteCustomer( id: ID! ): Boolean
+}
