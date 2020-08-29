@@ -112,7 +112,7 @@ type Mutation {
 ### Configurações recomendadas em produção
 
 `NODE_ENV=production`
-`MAIL_DRIVER=ethereal`
+`MAIL_DRIVER=ses`
 `STORAGE_DRIVER=s3`
 
 ### Como preparar o ambiente para produção
@@ -136,7 +136,3 @@ Depois, para iniciar o container digite
 ```
 $ docker run -d -p 4000:4000 <Nome imagem docker> --name <Nome do container>
 ```
-
-## Observações
-
-O provedor de envio de e-mails utilizado em desenvolvimento não irá enviar e-mails 
