@@ -32,7 +32,7 @@ A aplicação possui um arquivo .env na raíz do projeto que deve ser configurad
 
 ## Entidades
 
-### Customer
+### Customers
 
 ```graphql
 type Query {
@@ -44,6 +44,37 @@ type Mutation {
   createCustomer( data: CustomerInput! ): Customer
   updateCustomer( id: ID!, data: CustomerInput! ): Customer
   deleteCustomer( id: ID! ): Boolean
+}
+```
+
+### Products
+
+```graphql
+type Query {
+  products: [Product!]!
+  product(id: ID!): Product!
+},
+
+type Mutation {
+  createProduct( imageFile: Upload!, data: ProductInput! ): Product
+  updateProduct( id: ID!, data: ProductInput! ): Product
+  updateProductImage( id: ID!, imageFile: Upload!): Product
+  deleteProduct( id: ID! ): Boolean
+}
+```
+
+### Orders
+
+```graphql
+type Query {
+  orders: [Order!]!
+  order(id: ID!): Order!
+},
+
+type Mutation {
+  createOrder(data: OrderInput!): Order
+  updateOrderStatus(id: ID!): Order
+  cancelOrder(id: ID!): Order
 }
 ```
 
