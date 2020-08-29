@@ -37,7 +37,7 @@ Em ambinte de desenvolvimento, o playground do GraphQL pode ser acessado pela ro
 
 A aplicação possui um arquivo .env na raíz do projeto que deve ser configurado à sua escolha.
 
-![Env config](./assets/env_config.png)
+![Env config](/assets/env_config.PNG)
 
 ## Entidades e Rotas da aplicação
 
@@ -105,7 +105,7 @@ type Mutation {
 
 ## Exemplo de e-mail enviado
 
-![Email example](./assets/email_example.png)
+![Email example](/assets/email_example.PNG)
 
 ## Configurações Docker
 
