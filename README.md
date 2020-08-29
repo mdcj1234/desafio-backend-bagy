@@ -135,5 +135,5 @@ $ docker build -t <Nome imagem docker> .
 Depois, para iniciar o container digite
 
 ```
-$ docker run -d -p 4000:4000 <Nome imagem docker> --name <Nome do container>
+$ docker run -d -p 4000:4000 --name=<Nome container> <Nome imagem docker>
 ```
