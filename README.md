@@ -20,7 +20,7 @@ Para rodar esse projeto em desenvolvimento, clone esse repositório:
 
 ```
 $ git clone https://github.com/mdcj1234/desafio-backend-bagy.git
-$ cd desafio-backend-bag
+$ cd desafio-backend-bagy
 $ npm install
 ```
 
@@ -66,7 +66,7 @@ type Query {
 },
 
 type Mutation {
-  createProduct( imageFile: Upload!, data: ProductInput! ): Product
+  createProduct( imageFile: Upload, data: ProductInput! ): Product
   updateProduct( id: ID!, data: ProductInput! ): Product
   updateProductImage( id: ID!, imageFile: Upload!): Product
   deleteProduct( id: ID! ): Boolean
