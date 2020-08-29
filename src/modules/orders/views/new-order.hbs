@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Page Title</title>
+<title>Ordem de Compra</title>
 <style>
   .container {
     width: 100%;
@@ -35,6 +35,10 @@
     background-color: #fff;
   }
 
+  .message-content img {
+    padding: 10px;
+  }
+
   .product_list {
     display: inline-block;
     width: 200px;
@@ -53,7 +57,7 @@
   <div class="message-container">
 
     <div class="message-header">
-      <p>Olá, {{name}}</p>
+      <p>Olá, <strong>{{name}}</strong></p>
       <p>Seu pedido foi registrado em nosso sistema.</p>
     </div>
 
@@ -67,10 +71,12 @@
         <p>Você comprou de</p>
         <p>CPF {{cpf}}</p>
 
-        <p>Entrega no endereço</p>
+        <strong>Entrega no endereço</strong>
         <p>{{address}}</p>
+        <p>{{address2}}</p>
 
-        <p>Os items comprados foram: </p>
+        <strong>Os items comprados foram</strong>
+        <br />
         <ul class="product_list">
           {{#each products}}
             <li>{{this}}</li>

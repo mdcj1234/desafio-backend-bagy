@@ -26,13 +26,6 @@ async function storeImageFileInTempFolder(imageFile) {
   return createReadStream().pipe(createWriteStream(filePath));
 }
 
-// return new Promise((resolve, reject) =>
-//     createReadStream()
-//       .pipe(createWriteStream(filePath))
-//       .on('finish', () => resolve(true))
-//       .on('error', () => reject()),
-//   );
-
 export default {
   Product: {
     created_at: product => {
@@ -54,16 +47,22 @@ export default {
   },
   Mutation: {
     createProduct: async (_, { imageFile, data }) => {
-      const resolvedImageFile = await imageFile;
+      let imageFileName = '';
 
-      await storeImageFileInTempFolder(resolvedImageFile);
+      if (imageFile) {
+        const resolvedImageFile = await imageFile;
 
-      const { fileName } = resolvedImageFile;
+        await storeImageFileInTempFolder(resolvedImageFile);
+
+        const { filename } = resolvedImageFile;
+
+        imageFileName = filename;
+      }
 
       const createProductService = container.resolve(CreateProductService);
       return createProductService.execute({
         ...data,
-        imageFileName: fileName,
+        imageFileName,
       });
     },
     updateProduct: (_, { id, data }) => {
@@ -75,14 +74,14 @@ export default {
 
       await storeImageFileInTempFolder(resolvedImageFile);
 
-      const { fileName } = resolvedImageFile;
+      const { filename } = resolvedImageFile;
 
       const updateProductImageService = container.resolve(
         UpdateProductImageService,
       );
       return updateProductImageService.execute({
         id,
-        imageFileName: fileName,
+        imageFileName: filename,
       });
     },
     deleteProduct: (_, { id }) => {

@@ -102,7 +102,15 @@ class CreateOrderService {
       'new-order.hbs',
     );
 
-    const { street, number, city, state, country, zipcode } = customer.address;
+    const {
+      street,
+      number,
+      city,
+      neighbourhood,
+      state,
+      country,
+      zipcode,
+    } = customer.address;
 
     const totalPrice = order_products
       .map(order_product => {
@@ -123,13 +131,16 @@ class CreateOrderService {
         variables: {
           name: customer.name,
           cpf: customer.cpf,
-          address: `${street} ${number}, ${city}, ${state}, ${country} - ${zipcode}`,
+          address: `${street}, ${number}, ${neighbourhood} - ${zipcode}`,
+          address2: `${city}, ${state}, ${country}`,
           products: [
             ...order_products.map(order_product => {
-              return order_product.name;
+              return `${order_product.quantity}x ${order_product.name}: R$ ${
+                order_product.price * order_product.quantity
+              }`;
             }),
           ],
-          totalPrice,
+          totalPrice: `R$ ${totalPrice}`,
         },
       },
     });

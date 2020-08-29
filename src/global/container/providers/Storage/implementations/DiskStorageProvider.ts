@@ -11,7 +11,7 @@ class DiskStoragePrivider implements IStorageProvider {
       path.resolve(uploadConfig.uploadsFolder, file),
     );
 
-    return file;
+    return path.resolve(uploadConfig.uploadsFolder, file);
   }
 
   public async deleteFile(file: string): Promise<void> {
