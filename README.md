@@ -21,6 +21,12 @@ Para rodar esse projeto em desenvolvimento, clone esse repositório:
 $ git clone https://github.com/mdcj1234/desafio-backend-bagy.git
 $ cd desafio-backend-bag
 $ npm install
+```
+Antes de executar o projeto, crie um arquivo .env seguindo as orientações do arquivo .env.example
+
+Em seguida rode o comando
+
+```
 $ npm run dev
 ```
 
@@ -98,9 +104,27 @@ type Mutation {
 
 * Clientes devem ter as informações básicas preenchidas.
 
+## Exemplo de e-mail enviado
+
+![Email example](./assets/email_example.png)
+
 ## Configurações Docker
 
-Antes de gerar uma imagem do projeto, coloque a varável de ambiente `NODE_ENV=production`
+### Configurações recomendadas em produção
+
+`NODE_ENV=production`
+`MAIL_DRIVER=ethereal`
+`STORAGE_DRIVER=s3`
+
+### Como preparar o ambiente para produção
+
+Antes de gerar uma imagem docker do projeto, coloque a varável de ambiente `NODE_ENV=production`
+
+Faça um build do projeto
+
+```
+$ npm run build
+```
 
 Em seguinda, na raiz do projeto digite o seguinte comando
 
@@ -114,4 +138,6 @@ Depois, para iniciar o container digite
 $ docker run -d -p 4000:4000 <Nome imagem docker> --name <Nome do container>
 ```
 
+## Observações
 
+O provedor de envio de e-mails utilizado em desenvolvimento não irá enviar e-mails 
