@@ -3,6 +3,8 @@
 node_modules/
 coverage/
 build/
+dist/
 tmp/*
 !tmp/.gitkeep
+!tmp/uploads/.gitkeep
 .env

@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import 'reflect-metadata';
 
-import '@global/container';
+import './container';
 import './infra/typeorm';
 
 import { ApolloServer } from 'apollo-server';
