@@ -98,3 +98,20 @@ type Mutation {
 
 * Clientes devem ter as informações básicas preenchidas.
 
+## Configurações Docker
+
+Antes de gerar uma imagem do projeto, coloque a varável de ambiente `NODE_ENV=production`
+
+Em seguinda, na raiz do projeto digite o seguinte comando
+
+```
+$ docker build -t <Nome imagem docker> .
+```
+
+Depois, para iniciar o container digite
+
+```
+$ docker run -d -p 4000:4000 <Nome imagem docker> --name <Nome do container>
+```
+
+
