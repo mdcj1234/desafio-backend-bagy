@@ -10,7 +10,8 @@ Essa é uma aplicação NodeJS feita com JavaScript e TypeScript. É uma API com
 * Tsyringe
 * TypeORM
 * Handlebars
-* aws-sdk
+* Aws-sdk
+* Nodemailer
 * Jest
 
 ## Como instalar
