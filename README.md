@@ -10,7 +10,8 @@ Essa é uma aplicação NodeJS feita com JavaScript e TypeScript. É uma API com
 * Tsyringe
 * TypeORM
 * Handlebars
-* aws-sdk
+* Aws-sdk
+* Nodemailer
 * Jest
 
 ## Como instalar
@@ -37,7 +38,7 @@ Em ambinte de desenvolvimento, o playground do GraphQL pode ser acessado pela ro
 
 A aplicação possui um arquivo .env na raíz do projeto que deve ser configurado à sua escolha.
 
-![Env config](./assets/env_config.png)
+![Env config](/assets/env_config.PNG)
 
 ## Entidades e Rotas da aplicação
 
@@ -105,7 +106,7 @@ type Mutation {
 
 ## Exemplo de e-mail enviado
 
-![Email example](./assets/email_example.png)
+![Email example](/assets/email_example.PNG)
 
 ## Configurações Docker
 
@@ -134,5 +135,5 @@ $ docker build -t <Nome imagem docker> .
 Depois, para iniciar o container digite
 
 ```
-$ docker run -d -p 4000:4000 <Nome imagem docker> --name <Nome do container>
+$ docker run -d -p 4000:4000 --name=<Nome container> <Nome imagem docker>
 ```
