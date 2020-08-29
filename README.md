@@ -27,3 +27,24 @@ $ npm run test
 ## Variáveis de ambiente
 
 A aplicação possui um arquivo .env na raíz do projeto que deve ser configurado à sua escolha.
+
+![Env config](./assets/env_config.png)
+
+## Entidades
+
+### Customer
+
+```graphql
+type Query {
+  customers: [Customer!]!
+  customer(id: ID!): Customer!
+},
+
+type Mutation {
+  createCustomer( data: CustomerInput! ): Customer
+  updateCustomer( id: ID!, data: CustomerInput! ): Customer
+  deleteCustomer( id: ID! ): Boolean
+}
+```
+
+
