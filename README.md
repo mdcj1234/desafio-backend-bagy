@@ -22,9 +22,8 @@ $ git clone https://github.com/mdcj1234/desafio-backend-bagy.git
 $ cd desafio-backend-bag
 $ npm install
 ```
-Antes de executar o projeto, crie um arquivo .env seguindo as orientações do arquivo .env.example
 
-Em seguida rode o comando
+Em seguida rode o comando:
 
 ```
 $ npm run dev
