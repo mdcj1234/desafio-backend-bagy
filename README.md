@@ -20,7 +20,7 @@ Para rodar esse projeto em desenvolvimento, clone esse repositório:
 
 ```
 $ git clone https://github.com/mdcj1234/desafio-backend-bagy.git
-$ cd desafio-backend-bag
+$ cd desafio-backend-bagy
 $ npm install
 ```
 
