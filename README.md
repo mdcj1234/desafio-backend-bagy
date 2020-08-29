@@ -21,8 +21,12 @@ Para rodar esse projeto em desenvolvimento, clone esse repositório:
 $ git clone https://github.com/mdcj1234/desafio-backend-bagy.git
 $ cd desafio-backend-bag
 $ npm install
-$ npm run test
+$ npm run dev
 ```
+
+## GraphQL Playground
+
+Em ambinte de desenvolvimento, o playground do GraphQL pode ser acessado pela rota http://localhost:4000 em qualquer browser
 
 ## Variáveis de ambiente
 
@@ -30,7 +34,7 @@ A aplicação possui um arquivo .env na raíz do projeto que deve ser configurad
 
 ![Env config](./assets/env_config.png)
 
-## Entidades
+## Entidades e Rotas da aplicação
 
 ### Customers
 
@@ -77,5 +81,20 @@ type Mutation {
   cancelOrder(id: ID!): Order
 }
 ```
+## Regras de negócio
 
+### Orderns
+
+* Ordens de compra tem que ter um cliente válido e produtos válidos
+* A quantidade solicitada de produts na ordem de compra tem que ter em estoque.
+
+### Produtos
+
+* Produtos não podem ter a quantidade em estoque negativa
+* Produtos têm que ter preço e peso positivos.
+* Produtos tem que ter uma imagem
+
+### Clientes
+
+* Clientes devem ter as informações básicas preenchidas.
 
